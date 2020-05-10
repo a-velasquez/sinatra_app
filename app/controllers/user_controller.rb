@@ -1,5 +1,6 @@
 class UserController < ApplicationController
 
+#signing up
   get '/signup' do
     if logged_in?
       redirect to '/posts'
@@ -19,8 +20,10 @@ class UserController < ApplicationController
       @user = User.create(username: params[:username], password: params[:password])
       @user.save
       session[:critic_id] = @user.id #logged in. where is the sessions hash initially declared?
-      redirect to '/reviews'
+      redirect to '/signup'
     end
   end
+
+#logging in
 
 end
