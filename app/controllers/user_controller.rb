@@ -10,7 +10,7 @@ class UserController < ApplicationController
   end
 
   post '/signup' do
-    if is_logged_in?
+    if logged_in?
       # flash[:message] = "You were already logged in. Here are your reviews."
       redirect to '/posts'
     elsif params[:username] == "" || params[:password] == ""
@@ -19,11 +19,19 @@ class UserController < ApplicationController
     else
       @user = User.create(username: params[:username], password: params[:password])
       @user.save
-      session[:critic_id] = @user.id #logged in. where is the sessions hash initially declared?
+      session[:user_id] = @user.id #sets session id / logs user in
       redirect to '/signup'
     end
   end
 
 #logging in
+
+  get '/login' do
+    if logged_in?
+      redirect '/posts'
+    else
+      erb :'users/login'
+    end
+  end
 
 end
