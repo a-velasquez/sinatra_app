@@ -55,8 +55,4 @@ class UserController < ApplicationController
     end
   end
 
-  # get '/logout' do
-  #   "Hello World"
-  # end
-
 end
