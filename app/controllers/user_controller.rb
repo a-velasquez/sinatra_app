@@ -46,17 +46,17 @@ class UserController < ApplicationController
 
   #logging out
 
-  # get '/logout' do
-  #   if logged_in?
-  #     session.clear
-  #     redirect '/login'
-  #   else
-  #     redirect '/'
-  #   end
-  # end
-
   get '/logout' do
-    "Hello World"
+    if logged_in?
+      session.clear
+      redirect '/login'
+    else
+      redirect '/'
+    end
   end
+
+  # get '/logout' do
+  #   "Hello World"
+  # end
 
 end
