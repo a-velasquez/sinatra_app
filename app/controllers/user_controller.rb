@@ -34,4 +34,29 @@ class UserController < ApplicationController
     end
   end
 
+  post '/login' do
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect '/posts'
+    else
+      redirect '/login'
+    end
+  end
+
+  #logging out
+
+  # get '/logout' do
+  #   if logged_in?
+  #     session.clear
+  #     redirect '/login'
+  #   else
+  #     redirect '/'
+  #   end
+  # end
+
+  get '/logout' do
+    "Hello World"
+  end
+
 end
