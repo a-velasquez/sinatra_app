@@ -24,7 +24,7 @@ class UserController < ApplicationController
     end
   end
 
-#logging in
+#Logging in
 
   get '/login' do
     if logged_in?

@@ -1,1 +1,8 @@
-Here are all your posts!
+Here Are All Of Your Posts, <%=current_user.username %>!</p>
+
+<% if logged_in? %>
+    <p><a href='/logout'>Log Out </a></p>
+  <% else %>
+    <p><a href='/login'>Log In </a></p>
+    <p><a href='/signup'>Or sign up here</a></p>
+<%end %>

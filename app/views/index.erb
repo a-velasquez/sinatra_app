@@ -1,6 +1,11 @@
-<h2>Welcome to Scene It?</h2>
-<p>The Personal Movie Tracker!</p>
 
-<p><a href='/login'>Log In </a></p>
-<p><a href='/logout'>Log Out </a></p>
-<p><a href='/signup'>Or sign up here</a></p>
+<% if logged_in? %>
+    <h2>Hi, <%= current_user.username %> And Welcome to Scene It? </h2>
+    <h3>The Movie History Tracker!</h3>
+    <p><a href='/logout'>Log Out </a></p>
+  <% else %>
+    <h2>Welcome to Scene It?</h2>
+    <h3>The Personal Movie Tracker!</h3>
+    <p><a href='/login'>Log In </a></p>
+    <p><a href='/signup'>Or sign up here</a></p>
+<%end %>
