@@ -2,19 +2,16 @@ class PostController < ApplicationController
 
   #create
 
-  get '/post/new' do
-
-  end
-
-
-
+  # get '/post/new' do
+  #
+  # end
 
   #read all
   get '/posts' do
     if logged_in?
       @user = current_user
       @posts = @user.posts.all
-      erb :'users/index'
+      erb :'posts/index'
     else
       redirect '/login'
     end
