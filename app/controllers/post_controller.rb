@@ -3,7 +3,11 @@ class PostController < ApplicationController
   #create
 
   get '/posts/new' do
-    erb :'/posts/new'
+    if logged_in?
+      erb :'/posts/new'
+    else
+      redirect '/login'
+    end
   end
 
   post '/posts' do #.create also saves the created object, while .build only returns the new object.
