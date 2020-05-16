@@ -6,6 +6,11 @@ class PostController < ApplicationController
     erb :'/posts/new'
   end
 
+  post '/posts' do #.create also saves the created object, while .build only returns the new object.
+    @post = Post.create(content: params[:content])
+    binding.pry
+  end
+
   #read all
   get '/posts' do
     if logged_in?
