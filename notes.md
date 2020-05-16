@@ -25,13 +25,13 @@
     - post belongs to user
 
 ## Post controller and views
-    - '/orders/new' => renders new post form
-    - '/orders' => submits posts, POST
-    - '/orders' => renders all orders
-    - '/orders/:id' => renders one instance of Post
-    - '/orders/:id/edit' => renders update form for an instance
-    - '/orders/:id' => update instance, PATCH
-    - '/orders/:id/delete' => deletes instance
+    - '/posts/new' => renders new post form
+    - '/posts' => submits posts, POST
+    - '/posts' => renders all orders
+    - '/posts/:id' => renders one instance of Post
+    - '/posts/:id/edit' => renders update form for an instance
+    - '/posts/:id' => update instance, PATCH
+    - '/posts/:id/delete' => deletes instance
 
 ## Where To Start?
     [] - setup classes

@@ -2,9 +2,9 @@ class PostController < ApplicationController
 
   #create
 
-  # get '/post/new' do
-  #
-  # end
+  get '/posts/new' do
+    erb :'/posts/new'
+  end
 
   #read all
   get '/posts' do
