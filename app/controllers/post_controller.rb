@@ -7,7 +7,7 @@ class PostController < ApplicationController
   end
 
   post '/posts' do #.create also saves the created object, while .build only returns the new object.
-    @post = Post.create(content: params[:content])
+    @post = current_user.posts.create(content: params[:content]) # creates post and sets association.
     binding.pry
   end
 
