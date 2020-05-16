@@ -1,4 +1,4 @@
-## Application Function
+## Application Function:
     [] - User can create, read, update and delete a post
 
 ## Interface:
@@ -7,12 +7,12 @@
     - User can edit post
     - User can delete post
 
-## User class
+## User class:
     - attributes => username, email, password
     - user signs up/logs in
     - has many posts
 
-## User controller and views
+## User controller and views:
     - '/users/signup' => renders signup form
     - '/users/signup' => processes signup from,. creates user, POST
     - 'users/login' => renders login form
@@ -20,11 +20,11 @@
     - need to set session to login user
     - user can view their posts, '/users/:id/posts'
 
-## Post class
+## Post class:
     - attributes => content, user_id
     - post belongs to user
 
-## Post controller and views
+## Post controller and views:
     - '/posts/new' => renders new post form
     - '/posts' => submits posts, POST
     - '/posts' => renders all orders
@@ -34,7 +34,7 @@
     - '/posts/:id/delete' => deletes instance
 
 ## Where To Start?
-    [] - setup classes
-    [] - set up database
-    [] - user_controller
-    [] - post_controller
+    [x] - setup classes
+    [x] - set up database
+    [x] - user_controller
+    [ ] - post_controller
