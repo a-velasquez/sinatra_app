@@ -5,6 +5,17 @@
    <p><a href="/posts/<%=post.id%>"><%= post.content %></a></p>
   </li>
  <% end %>
+</ol><br>
+
+
+<h3>What Other Users Are Posting!</h3>
+<ol>
+  <% Post.all.each do |post| %>
+    <li>
+      <p><%= post.content %></p>
+    </li>
+  <% end %>
 </ol>
+
 
 <p><a href='/logout'>Log Out </a></p>
