@@ -43,7 +43,7 @@ class PostController < ApplicationController
     if logged_in?
       @post = Post.find(params[:id])
       if @post.user_id == session[:user_id]
-        erb :'posts/show.erb'
+        erb :'posts/show'
       else
         redirect '/posts'
       end
