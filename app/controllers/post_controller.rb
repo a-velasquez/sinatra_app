@@ -38,6 +38,20 @@ class PostController < ApplicationController
     end
   end
 
+  #read a specific instance
+  get '/posts/:id' do
+    if logged_in?
+      @post = Post.find(params[:id])
+      if @post.user_id == session[:user_id]
+        erb :'posts/show.erb'
+      else
+        redirect '/posts'
+      end
+    else
+      redirect '/login'
+    end
+  end
+
   #update
 
 
