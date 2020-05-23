@@ -14,10 +14,10 @@ class ApplicationController < Sinatra::Base
   end
 
   def logged_in?
-    !current_user.nil?
+    !current_user.nil? #avoids double negation
   end
 
   def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+    @current_user ||= User.find(session[:user_id]) if session[:user_id] #uses memoization
   end
 end

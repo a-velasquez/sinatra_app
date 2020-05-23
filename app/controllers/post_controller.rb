@@ -1,7 +1,6 @@
 class PostController < ApplicationController
 
   #create
-
   get '/posts/new' do
     if logged_in? #checks to see if user is logged in
       erb :'/posts/new' #if logged in, lets user see new post form
@@ -15,7 +14,7 @@ class PostController < ApplicationController
       if params[:content] == ""
         redirect "/posts/new"
       else
-        @post = current_user.posts.create(content: params[:content])# creates post and sets association.
+        @post = current_user.posts.create(content: params[:content]) #creates post and sets association.
         if @post
           redirect "/posts/#{@post.id}"
         else
