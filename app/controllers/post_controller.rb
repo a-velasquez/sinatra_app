@@ -40,7 +40,7 @@ class PostController < ApplicationController
   #read a specific instance
   get '/posts/:id' do
     if logged_in?
-      @post = Post.find(params[:id])
+      @post = Post.find_by_id(params[:id])
       if @post.user_id == session[:user_id]
         erb :'posts/show'
       else
