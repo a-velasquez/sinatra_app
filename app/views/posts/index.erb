@@ -3,7 +3,7 @@
  <% @posts.each do |post| %>
   <li>
    <p><a href="/posts/<%=post.id%>"><%= post.content %></a></p>
-   <p><%= post.posted %></p>
+   <p>Posted: <%= post.posted %></p>
   </li>
  <% end %>
 </ol><br>
