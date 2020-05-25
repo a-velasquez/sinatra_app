@@ -31,7 +31,7 @@ class PostController < ApplicationController
     if logged_in?
       @user = current_user
       @posts = @user.posts.all
-      erb :'posts/index'
+      erb :'/posts/index'
     else
       redirect '/login'
     end
@@ -42,7 +42,7 @@ class PostController < ApplicationController
     if logged_in?
       @post = Post.find_by_id(params[:id])
       if @post.user_id == session[:user_id]
-        erb :'posts/show'
+        erb :'/posts/show'
       else
         redirect '/posts'
       end
@@ -53,7 +53,12 @@ class PostController < ApplicationController
 
   #update
   get '/posts/:id/edit' do
-    "edit this post"
+    if logged_in?
+      @post = Post.find_by_id(params[:id])
+      erb :'posts/edit'
+    else
+      redirect to '/login'
+    end
   end
 
 
