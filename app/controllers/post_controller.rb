@@ -14,7 +14,7 @@ class PostController < ApplicationController
       if params[:content] == ""
         redirect "/posts/new"
       else
-        @post = current_user.posts.create(content: params[:content], posted: Time.now.strftime("%b %d, %Y %l:%M %p")) #creates post and sets association.
+        @post = current_user.posts.create(content: params[:content], posted: Time.now) #creates post and sets association.
         if @post
           redirect "/posts/#{@post.id}"
         else
