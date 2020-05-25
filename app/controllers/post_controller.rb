@@ -52,7 +52,9 @@ class PostController < ApplicationController
   end
 
   #update
-
+  get '/posts/:id/edit' do
+    "edit this post"
+  end
 
 
   #delete
