@@ -57,6 +57,21 @@ class PostController < ApplicationController
       @post = current_user.posts.find_by(id: params[:id])
       erb :'posts/edit'
     else
+      redirect '/login'
+    end
+  end
+
+  patch '/posts/:id' do
+    if logged_in?
+      @post = Post.find_by_id(params[:id])
+        if @post && @post.user == current_user
+          @post.content = params[:content]
+          @post.save
+          redirect "/posts/#{@post.id}"
+        else
+          redirect "/posts/#{@post.id}"
+        end
+    else
       redirect to '/login'
     end
   end
