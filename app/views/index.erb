@@ -1,6 +1,7 @@
 <% if logged_in? %>
     <h2>Hi, <%= current_user.username %> And Welcome to Scene It? </h2>
     <h3>The Movie History Tracker!</h3>
+    <p><a href='/posts'>See All Of Your Posts </a></p>
     <p><a href='/logout'>Log Out </a></p>
   <% else %>
     <h2>Welcome to Scene It?</h2>
