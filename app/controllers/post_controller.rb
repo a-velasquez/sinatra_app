@@ -54,7 +54,7 @@ class PostController < ApplicationController
   #update
   get '/posts/:id/edit' do
     if logged_in?
-      @post = Post.find_by_id(params[:id])
+      @post = current_user.posts.find_by(id: params[:id])
       erb :'posts/edit'
     else
       redirect to '/login'
