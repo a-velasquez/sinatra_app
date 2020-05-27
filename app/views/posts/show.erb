@@ -4,6 +4,7 @@
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete Your Post">
 </form>
-
-<p><a href='/posts/<%=@post.id%>/edit'>Edit this Post</a></p>
+<form action="/posts/<%=@post.id%>/edit">
+  <input type="submit" value="Edit this Post">
+</form>
 <p><a href='/'>Back To The Main Page</a></p>
