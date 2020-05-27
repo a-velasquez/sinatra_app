@@ -18,7 +18,7 @@ class UserController < ApplicationController
       @user = User.create(username: params[:username], password: params[:password])
       @user.save
       session[:user_id] = @user.id #sets session id / logs user in
-      redirect to '/signup'
+      redirect to '/posts'
     end
   end
 
