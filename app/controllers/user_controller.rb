@@ -16,9 +16,12 @@ class UserController < ApplicationController
       redirect to '/signup'
     else
       @user = User.create(username: params[:username], password: params[:password])
-      @user.save
-      session[:user_id] = @user.id #sets session id / logs user in
-      redirect to '/posts'
+      if @user.save #uses validation to make sure username is unique
+        session[:user_id] = @user.id #sets session id / logs user in
+        redirect to '/posts'
+      else
+      redirect '/signup'
+      end
     end
   end
 
