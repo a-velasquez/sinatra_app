@@ -5,24 +5,23 @@ class PostController < ApplicationController
     if logged_in? #checks to see if user is logged in
       erb :'/posts/new' #if logged in, lets user see new post form
     else
+      flash[:message] = "You must be logged in to add a new post"
       redirect '/login' #if not logged in, takes user to login page
     end
   end
 
-  post '/posts' do #.create also saves the created object, while .build only returns the new object.
+  post '/posts' do
     if logged_in?
-      if params[:content] == ""
-        redirect "/posts/new"
+    @post = current_user.posts.create(content: params[:content], posted: Time.now) #.create also saves the created object, while .build only returns the new object.
+      if @post.save
+        flash[:message] = "You've successfully added a movie to your collection!"
+        redirect "/posts/#{@post.id}"
       else
-        @post = current_user.posts.create(content: params[:content], posted: Time.now) #creates post and sets association.
-        if @post
-          redirect "/posts/#{@post.id}"
-        else
-          redirect "/tweets/new"
-        end
+        flash[:errors]  = "Post Was Not Saved: #{@post.errors.full_messages.to_sentence}"
+        redirect '/posts/new'
       end
     else
-      redirect "/login"
+      redirect '/login'
     end
   end
 
