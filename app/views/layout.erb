@@ -4,7 +4,15 @@
     <title>Scene it?</title>
   </head>
   <body>
+    <div>
+      <% if flash[:message] %>
+        <h2><%= flash[:message] %></h2>
+      <% end %>
+      <% if flash[:errors] %>
+        <h5 style="color:red;"><%= flash[:errors] %></h5>
+      <% end %>
+    </div>
     <h3>Scene It?: The Movie Tracker</h3>
-    <%= yield %>
+      <%= yield %>
   </body>
 </html>
